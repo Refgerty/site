@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система управления документооборотом</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .features-section {
+            padding: 60px 0;
+        }
+        
+        .feature-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .file-upload-container {
+            border: 2px dashed #4b6cb7;
+            border-radius: 10px;
+            padding: 2rem;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .file-upload-container:hover {
+            background: #e9ecef;
+        }
+        
+        .cta-section {
+            background-color: #f0f4f8;
+            padding: 60px 0;
+        }
+        
+        footer {
+            background-color: #182848;
+            color: white;
+            padding: 30px 0;
+        }
+        
+        .form-section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 30px;
+        }
+    </style>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ВАШИЙ_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ВАШИЙ_ID', {
+        'anonymize_ip': true,
+        'cookie_flags': 'SameSite=None;Secure'
+      });
+    </script>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #182848;">
+        <div class="container">
+            <a class="navbar-brand" href="#">DocFlow</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Возможности</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#upload">Загрузка документов</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero секция -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 mb-4">Автоматизация документооборота</h1>
+            <p class="lead mb-5">Избавьтесь от бумажного хаоса и автоматизируйте рабочие процессы с нашей системой</p>
+            <a href="#upload" class="btn btn-light btn-lg">Начать сейчас</a>
+        </div>
+    </section>
+
+    <!-- Секция особенностей -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2 class="text-center mb-5">Почему компании выбирают нашу систему</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="mb-3 text-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                            </svg>
+                        </div>
+                        <h4>Экономия времени</h4>
+                        <p>Сотрудники тратят до 2 часов в день на поиск документов. Наша система сократит это время на 80%.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="mb-3 text-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-shield-check" viewBox="0 0 16 16">
+                                <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+                                <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                            </svg>
+                        </div>
+                        <h4>Безопасность</h4>
+                        <p>Полная защита конфиденциальных документов с настраиваемыми уровнями доступа и аудитом действий.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="mb-3 text-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                                <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                            </svg>
+                        </div>
+                        <h4>Автоматизация процессов</h4>
+                        <p>Настраиваемые workflow для автоматической маршрутизации и утверждения документов без задержек.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция загрузки файлов -->
+    <section class="container my-5" id="upload">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="form-section">
+                    <h2 class="text-center mb-4">Загрузите ваши документы</h2>
+                    <p class="text-center mb-4">Попробуйте нашу систему прямо сейчас. Загрузите документ для автоматического анализа.</p>
+                    
+                    <div class="file-upload-container text-center">
+                        <form id="documentForm">
+                            <input type="file" class="form-control" id="fileInput" 
+                                accept=".pdf,.doc,.docx,.xls,.xlsx" 
+                                style="display:none;" multiple>
+                            <label for="fileInput" class="btn btn-primary mb-3">
+                                📁 Выбрать документ
+                            </label>
+                            <div id="fileList" class="text-muted small"></div>
+                            <button type="submit" class="btn btn-success mt-3">
+                                Отправить на анализ
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA секция -->
+    <section class="cta-section" id="contact">
+        <div class="container text-center">
+            <h2 class="mb-4">Готовы улучшить ваш бизнес-процесс?</h2>
+            <p class="mb-5">Свяжитесь с нами для проведения бесплатной демонстрации или консультации</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="form-section">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="nameInput" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="emailInput" placeholder="Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="companyInput" placeholder="Компания">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" id="messageInput" rows="3" placeholder="Сообщение"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Отправить заявку</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>© 2025 DocFlow. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Обработка файлов на клиенте
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const files = e.target.files;
+            const fileList = document.getElementById('fileList');
+            fileList.innerHTML = '';
+            
+            Array.from(files).forEach((file, index) => {
+                if(file.size > 10 * 1024 * 1024) {
+                    alert(`Файл ${file.name} превышает 10MB`);
+                    return;
+                }
+                
+                const fileItem = document.createElement('div');
+                fileItem.className = 'd-flex justify-content-between align-items-center mb-2';
+                fileItem.innerHTML = `
+                    <span>${file.name}</span>
+                    <span class="badge bg-primary">${(file.size/1024/1024).toFixed(2)}MB</span>
+                `;
+                fileList.appendChild(fileItem);
+            });
+        });
+
+        document.getElementById('documentForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const files = document.getElementById('fileInput').files;
+            
+            if(files.length === 0) {
+                alert('Выберите хотя бы один файл');
+                return;
+            }
+
+            // Имитация отправки с прогресс-баром
+            const progressBar = document.createElement('div');
+            progressBar.className = 'progress mt-3';
+            progressBar.innerHTML = `
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+            `;
+            document.getElementById('fileList').after(progressBar);
+            
+            const progressElement = progressBar.querySelector('.progress-bar');
+            
+            // Имитация загрузки
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 5;
+                progressElement.style.width = `${progress}%`;
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // Трекер Google Analytics
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'document_upload', {
+                            'event_category': 'conversion',
+                            'event_label': 'success',
+                            'value': files.length
+                        });
+                    }
+                    
+                    setTimeout(() => {
+                        alert('Документы успешно загружены!');
+                        document.getElementById('documentForm').reset();
+                        progressBar.remove();
+                        fileList.innerHTML = '';
+                    }, 500);
+                }
+            }, 100);
+            
+            // Для реального MVP использовать webhook.site или другой бесплатный сервис
+            // const formData = new FormData();
+            // Array.from(files).forEach(file => formData.append('documents', file));
+            // 
+            // try {
+            //     const response = await fetch('ВАШ_WEBHOOK_URL', {
+            //         method: 'POST',
+            //         body: formData
+            //     });
+            //     
+            //     if(!response.ok) throw new Error('Ошибка загрузки');
+            // } catch (error) {
+            //     console.error('Error:', error);
+            //     alert('Ошибка при загрузке файлов');
+            // }
+        });
+        
+        // Обработка формы контактов
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('nameInput').value;
+            const email = document.getElementById('emailInput').value;
+            const company = document.getElementById('companyInput').value;
+            const message = document.getElementById('messageInput').value;
+            
+            // Трекер Google Analytics
+            if (typeof gtag === 'function') {
+                gtag('event', 'contact_form_submit', {
+                    'event_category': 'lead',
+                    'event_label': company || 'no_company'
+                });
+            }
+            
+            // Имитация отправки
+            alert(`Спасибо, ${name}! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.`);
+            this.reset();
+        });
+        
+        // A/B тестирование элементов
+        document.addEventListener('DOMContentLoaded', function() {
+            // Варианты текста для кнопки
+            const ctaVariants = [
+                "📁 Выбрать документ",
+                "⚡ Начать загрузку",
+                "🔼 Загрузить файлы"
+            ];
+
+            // Рандомный выбор варианта
+            const selectedIndex = Math.floor(Math.random() * ctaVariants.length);
+            document.querySelector('#fileInput + label').textContent = ctaVariants[selectedIndex];
+
+            // Отслеживание в GA
+            if (typeof gtag === 'function') {
+                gtag('event', 'ab_test', {
+                    'event_category': 'cta_button',
+                    'event_label': 'variant_' + selectedIndex
+                });
+            }
+        });
+    </script>
+</body>
+</html>
