@@ -1,111 +1,157 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#2c3e50">
-    
-    <!-- Primary Meta Tags -->
-    <title>DocFlow - Modern Document Management System</title>
-    <meta name="title" content="DocFlow - Modern Document Management System">
-    <meta name="description" content="Enterprise-grade document workflow automation with AI-powered processing and secure collaboration">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docflow.example.com/">
-    <meta property="og:title" content="DocFlow - Modern Document Management System">
-    <meta property="og:description" content="Enterprise-grade document workflow automation with AI-powered processing and secure collaboration">
-    <meta property="og:image" content="https://docflow.example.com/og-image.jpg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docflow.example.com/">
-    <meta property="twitter:title" content="DocFlow - Modern Document Management System">
-    <meta property="twitter:description" content="Enterprise-grade document workflow automation with AI-powered processing and secure collaboration">
-    <meta property="twitter:image" content="https://docflow.example.com/og-image.jpg">
-
-    <!-- PWA Configuration -->
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    
-    <!-- Preconnect to External Resources -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://api.docflow.example.com">
-    
-    <!-- Critical CSS -->
-    <style>
-        #root {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        
-        .loading-screen {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #f8f9fa;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система управления документооборотом</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <noscript>
-        <div class="noscript-warning">
-            <h1>JavaScript Required</h1>
-            <p>Please enable JavaScript to use DocFlow Document Management System.</p>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h2>DocFlow</h2>
+            </div>
+            <ul class="navbar-nav">
+                <li><a href="#" data-page="dashboard" class="nav-link active">Главная</a></li>
+                <li><a href="#" data-page="upload" class="nav-link">Загрузка</a></li>
+                <li><a href="#" data-page="documents" class="nav-link">Документы</a></li>
+                <li><a href="#" data-page="workflow" class="nav-link">Workflow</a></li>
+            </ul>
         </div>
-    </noscript>
+    </nav>
 
-    <div id="root">
-        <div class="loading-screen">
-            <svg width="50" height="50" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/sxml">
-                <defs>
-                    <linearGradient x1="8.042%" y1="0%" x2="65.682%" y2="23.865%" id="a">
-                        <stop stop-color="#2c3e50" stop-opacity="0" offset="0%"/>
-                        <stop stop-color="#2c3e50" stop-opacity=".631" offset="63.146%"/>
-                        <stop stop-color="#2c3e50" offset="100%"/>
-                    </linearGradient>
-                </defs>
-                <g fill="none" fill-rule="evenodd">
-                    <g transform="translate(1 1)">
-                        <path d="M36 18c0-9.94-8.06-18-18-18" id="Oval-2" stroke="url(#a)" stroke-width="2">
-                            <animateTransform
-                                attributeName="transform"
-                                type="rotate"
-                                from="0 18 18"
-                                to="360 18 18"
-                                dur="0.9s"
-                                repeatCount="indefinite"/>
-                        </path>
-                        <circle fill="#2c3e50" cx="36" cy="18" r="1">
-                            <animateTransform
-                                attributeName="transform"
-                                type="rotate"
-                                from="0 18 18"
-                                to="360 18 18"
-                                dur="0.9s"
-                                repeatCount="indefinite"/>
-                        </circle>
-                    </g>
-                </g>
-            </svg>
-        </div>
-    </div>
+    <main class="main-content">
+        <!-- Dashboard Page -->
+        <section id="dashboard" class="page active">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Обзор системы</h1>
+                    <p>Добро пожаловать в систему управления документооборотом</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="card stat-card">
+                        <div class="card__body">
+                            <h3>Всего документов</h3>
+                            <div class="stat-number" id="totalDocs">156</div>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="card__body">
+                            <h3>Ожидают утверждения</h3>
+                            <div class="stat-number pending" id="pendingDocs">23</div>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="card__body">
+                            <h3>Утверждено в этом месяце</h3>
+                            <div class="stat-number approved" id="approvedDocs">45</div>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="card__body">
+                            <h3>Использовано места</h3>
+                            <div class="stat-number" id="storageUsed">8.7 GB</div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-11292576410');
-    </script>
-</body>
-</html>
-        });
-    </script>
+                <div class="recent-documents">
+                    <h2>Последние документы</h2>
+                    <div class="card">
+                        <div class="card__body">
+                            <div id="recentDocsList"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upload Page -->
+        <section id="upload" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Загрузка документов</h1>
+                    <p>Перетащите файлы в область ниже или нажмите для выбора</p>
+                </div>
+
+                <div class="upload-section">
+                    <div class="card upload-area" id="uploadArea">
+                        <div class="card__body">
+                            <div class="upload-content">
+                                <div class="upload-icon">📁</div>
+                                <h3>Перетащите файлы сюда</h3>
+                                <p>или <button class="btn btn--primary" id="selectFiles">выберите файлы</button></p>
+                                <input type="file" id="fileInput" multiple style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="upload-form">
+                        <div class="form-group">
+                            <label class="form-label">Категория</label>
+                            <select class="form-control" id="categorySelect">
+                                <option value="">Выберите категорию</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Теги (разделите запятыми)</label>
+                            <input type="text" class="form-control" id="tagsInput" placeholder="важный, срочный, проект">
+                        </div>
+                        <button class="btn btn--primary btn--full-width" id="uploadBtn" disabled>Загрузить документы</button>
+                    </div>
+                </div>
+
+                <div id="uploadedFiles" class="uploaded-files"></div>
+            </div>
+        </section>
+
+        <!-- Documents Page -->
+        <section id="documents" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Список документов</h1>
+                    <div class="search-section">
+                        <input type="text" class="form-control search-input" id="searchInput" placeholder="Поиск документов...">
+                        <select class="form-control" id="categoryFilter">
+                            <option value="">Все категории</option>
+                        </select>
+                        <select class="form-control" id="statusFilter">
+                            <option value="">Все статусы</option>
+                            <option value="pending">Ожидает утверждения</option>
+                            <option value="approved">Утвержден</option>
+                            <option value="rejected">Отклонен</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="documents-grid" id="documentsGrid"></div>
+            </div>
+        </section>
+
+        <!-- Workflow Page -->
+        <section id="workflow" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Управление workflow</h1>
+                    <p>Утверждение и отклонение документов</p>
+                </div>
+
+                <div class="workflow-tabs">
+                    <button class="btn btn--secondary workflow-tab active" data-status="pending">Ожидают утверждения</button>
+                    <button class="btn btn--secondary workflow-tab" data-status="approved">Утверждены</button>
+                    <button class="btn btn--secondary workflow-tab" data-status="rejected">Отклонены</button>
+                </div>
+
+                <div class="workflow-content" id="workflowContent"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="app.js"></script>
 </body>
 </html>
