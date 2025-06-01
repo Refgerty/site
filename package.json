@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Enterprise Document Management System - Frontend Application",
   "private": true,
-  "homepage": "https://docflow.app",
+  "homepage": "https://refgerty.github.io/site",
   "author": {
     "name": "DocFlow Technologies",
-    "email": "contact@docflow.app",
-    "url": "https://docflow.app"
+    "email": "gertypou@gmail.com",
+    "url": "https://refgerty.github.io/site"
   },
   "license": "MIT",
   "keywords": [
