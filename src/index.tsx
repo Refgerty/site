@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import './index.css';
+import './src/assets/styles/main.css';
 
 // Web Vitals for performance monitoring
 import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals';
